@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 
-from .views import (login, register, logout,
+from .views import (login, register, logout, password_reset_request,
                     ProfileUpdateView, )
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
          ProfileUpdateView.as_view()), name='profile'),
     path('profile/address', login_required(  # TODO move to coreapp?
          AddressView.as_view()), name='user-address'),
+path("password-reset", password_reset_request, name="password-reset")
 ]
